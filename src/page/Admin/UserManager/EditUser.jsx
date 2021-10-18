@@ -114,7 +114,7 @@ export default function EditUser(props) {
                     })} onChange={handleChangeNguoi} placeholder="Please select" value={formik.values.maLoaiNguoiDung} />
                 </Form.Item>
                 <Form.Item label="Button">
-                    <button type="submit" className="btn btn-primary">Button</button>
+                    <button type="submit" className="btn btn-primary">Cập nhật</button>
                 </Form.Item>
             </Form>
         </div>
