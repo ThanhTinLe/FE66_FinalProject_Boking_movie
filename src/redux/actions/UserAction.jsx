@@ -1,6 +1,6 @@
 import { UserManagerService } from "../../services/UserService";
 import { ACCESS_TOKEN, HISTORY_BOOKING, USER_LOGN } from "../../util/settings";
-import { LOGIN_ERROR, LOGIN_FAIL, OPEN_MODAL_USER, USER_INFO } from "./types/UserType";
+import { LAY_THONG_TIN_NGUOI_DUNG, LAY_THONG_TIN_NGUOI_DUNG_UPDATE, LOGIN_ERROR, LOGIN_FAIL, OPEN_MODAL_USER, USER_INFO } from "./types/UserType";
 import { history } from './../../App';
 import axios from "axios";
 // import { Modal, Button } from 'antd';
@@ -139,3 +139,65 @@ export const lichSuDatVe = (taiKhoan) => {
         }
     }
 }
+
+export const danhSachNguoiDung = (value = '') => {
+    return async dispatch => {
+        try {
+            const result = await UserManagerService.layDanhSachNguoiDung(value);
+            if (result.statusCode === 500) {
+                console.log(result.content)
+            } else {
+                console.log(result);
+                dispatch({
+                    type: LAY_THONG_TIN_NGUOI_DUNG,
+                    thongTinNguoiDung: result.data.content
+                })
+            }
+        } catch (error) {
+            console.log(error.response?.data)
+        }
+    }
+}
+
+export const danhSachNguoiDungUpdate = (value = '') => {
+    return async dispatch => {
+        try {
+            const result = await UserManagerService.layDanhSachNguoiDung(value);
+            console.log(result);
+            dispatch({
+                type: LAY_THONG_TIN_NGUOI_DUNG_UPDATE,
+                thongTinNguoiDung: result.data.content
+            })
+        } catch (error) {
+            console.log(error.response?.data)
+        }
+    }
+}
+
+export const capNhatNguoiDung = (user) => {
+    return async dispatch => {
+        try {
+            const result = await UserManagerService.updateNguoidung(user);
+            
+            alert('cập nhật người dùng thành công');
+
+            history.push('/admin/users')
+           
+        } catch (errors) {
+            console.log(errors);
+        }
+    }
+}
+
+// export const xoaNguoiDung = (taiKhoan) => {
+//     return async dispatch => {
+//         try {
+//             const result = await UserManagerService.xoaNguoiDung(taiKhoan);
+//             console.log(result)
+//             alert('xóa người dùng thành công')
+//             dispatch(danhSachNguoiDung());
+//         } catch (error) {
+//             console.log(error)
+//         }
+//     }
+// }

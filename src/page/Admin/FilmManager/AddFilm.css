@@ -1,0 +1,18 @@
+#hinhAnh{
+    font-size: 14px !important;
+    float: left;
+}
+.ant-input{
+    width: 100%;
+    font-size: 14px !important;
+}
+.ant-form label{
+    left: 0;
+    top: 0;
+}
+.ant-picker-input input{
+    font-size: 14px !important;
+}
+.ant-input-number-input-wrap input{
+    font-size: 14px !important;
+}
