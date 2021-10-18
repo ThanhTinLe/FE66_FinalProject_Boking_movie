@@ -33,7 +33,7 @@ export default function CumRapComponent(props) {
 
     
     return (
-        <div className="container p-5 cumRapComponent" style={{ marginBottom: 40}}>
+        <div className="container cumRapComponent" style={{ marginBottom: 40, padding: '100px 20px 20px 20px'}}>
             <Tabs tabPosition="left">
                 {renderTabs()}
             </Tabs>

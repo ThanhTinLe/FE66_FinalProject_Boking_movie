@@ -13,13 +13,13 @@ export default class baseService{
     }
 
 
-    post = (url, data, ACCESS_TOKEN) => {
+    post = (url, data) => {
       return axios({
         url: url,
         method: 'POST',
         data: data,
         headers:{
-          "Authorization": `Bearer ${ACCESS_TOKEN}`
+          "Authorization": `Bearer ${localStorage.getItem('accessToken')}`
         }
       })
     }
@@ -33,12 +33,12 @@ export default class baseService{
         }
       })
     }
-    delete = (url, ACCESS_TOKEN) => {
+    delete = (url) => {
       return axios({
         url: url,
         method: 'DELETE',
         headers:{
-          "Authorization": ACCESS_TOKEN
+          "Authorization": `Bearer ${localStorage.getItem('accessToken')}`
         }
       })
     }
