@@ -1,15 +1,13 @@
 import { useFormik } from 'formik';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { capNhatAction, capNhatNguoiDung, danhSachNguoiDungUpdate } from '../../../redux/actions/UserAction';
+import { capNhatNguoiDung, danhSachNguoiDungUpdate } from '../../../redux/actions/UserAction';
 import * as Yup from 'yup'
 import {
     Form,
     Input,
-    Button,
     Select
 } from 'antd';
-import { ACCESS_TOKEN } from '../../../util/settings';
 
 export default function EditUser(props) {
 
@@ -48,11 +46,6 @@ export default function EditUser(props) {
 
     console.log(formik.values.maLoaiNguoiDung);
 
-    const [componentSize, setComponentSize] = useState('default');
-
-    const onFormLayoutChange = ({ size }) => {
-        setComponentSize(size);
-    };
     const nguoiDung = [
         {
             name: 'Quản trị',

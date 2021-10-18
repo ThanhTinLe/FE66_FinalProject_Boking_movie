@@ -1,9 +1,8 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { danhSachNguoiDung, xoaNguoiDung } from './../../../redux/actions/UserAction'
+import { danhSachNguoiDung } from './../../../redux/actions/UserAction'
 import { Table, Input, Space } from 'antd';
 import { NavLink } from 'react-router-dom';
-import Search from 'antd/lib/transfer/search';
 
 export default function UserManager() {
 
@@ -52,13 +51,6 @@ export default function UserManager() {
                         <div>
                             <NavLink key={1} to={`/admin/edituser/` + user.taiKhoan}><i className="fa fa-wrench text-warning"></i></NavLink>
                         </div>
-                        {/* <div>
-                            <span style={{ cursor: 'pointer' }} onClick={() => {
-                                if (window.confirm(`bạn có chắc muốn xóa ` + user.hoTen )) {
-                                    dispatch(xoaNguoiDung(user.taiKhoan))
-                                }
-                            }} key={3} to="/"><i className="fa fa-trash-alt text-danger"></i></span>
-                        </div> */}
 
                     </div>
                 </Fragment>
