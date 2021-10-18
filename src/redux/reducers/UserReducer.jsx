@@ -1,6 +1,6 @@
 import LoginComponent from "../../components/LoginComponent/LoginComponent";
 import { HISTORY_BOOKING, USER_LOGN } from "../../util/settings";
-import { LOGIN_FAIL, OPEN_MODAL_USER, USER_INFO } from "../actions/types/UserType"
+import { LAY_THONG_TIN_NGUOI_DUNG, LAY_THONG_TIN_NGUOI_DUNG_UPDATE, LOGIN_FAIL, OPEN_MODAL_USER, USER_INFO } from "../actions/types/UserType"
 
 let usLogin = '';
 if(localStorage.getItem(USER_LOGN)) {
@@ -16,7 +16,9 @@ const initialState = {
     userLogin: usLogin,
     loginFail: '',
     user: {},
-    thongTinDatVe: {}
+    thongTinDatVe: {},
+    thongTinNguoiDung:[],
+    detailUser:{}
 }
 
 export const UserReducer = (state = initialState, action) => {
@@ -41,6 +43,14 @@ export const UserReducer = (state = initialState, action) => {
 
         case HISTORY_BOOKING : {
             return {...state, thongTinDatVe: action.historyBooking}
+        }
+
+        case LAY_THONG_TIN_NGUOI_DUNG : {
+            return {...state, thongTinNguoiDung: action.thongTinNguoiDung}
+        }
+        case LAY_THONG_TIN_NGUOI_DUNG_UPDATE : {
+            state.detailUser =action.thongTinNguoiDung
+            return {...state}
         }
 
     default:

@@ -17,6 +17,13 @@ import AppComponent from "./components/AppComponent/AppComponent";
 import CumRapComponent from "./components/CumRap/CumRapComponent";
 import Detail from "./page/Detail/Detail";
 import DatVe from "./page/DatVe/DatVe";
+import AdminTemplate from "./templates/AdminTemplate/AdminTemplate";
+import UserManager from "./page/Admin/UserManager/UserManager";
+import FilmManager from "./page/Admin/FilmManager/FilmManager";
+import AddFilm from "./page/Admin/FilmManager/AddFilm";
+import AddShowTime from "./page/Admin/ShowTime/AddShowTime";
+import EditFilm from "./page/Admin/FilmManager/EditFilm";
+import EditUser from "./page/Admin/UserManager/EditUser";
 
 export const history = createBrowserHistory();
 
@@ -36,6 +43,13 @@ function App() {
         <UserTemplate exact path='/datve/:id' component={DatVe} />
         <HomeTemplate exact path="/" component={Home} />
 
+        <AdminTemplate exact path='/admin' component={UserManager}/>
+        <AdminTemplate exact path='/admin/addfilms' component={AddFilm}/>
+        <AdminTemplate exact path='/admin/editfilm/:id' component={EditFilm}/>
+        <AdminTemplate exact path='/admin/users' component={UserManager}/>
+        <AdminTemplate exact path='/admin/films' component={FilmManager}/>
+        <AdminTemplate exact path='/admin/edituser/:id' component={EditUser}/>
+        <AdminTemplate exact path='/admin/addshowtimes/:id' component={AddShowTime}/>
 
         <HomeTemplate path="*" component={Home} />
       </Switch>
